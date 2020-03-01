@@ -5,6 +5,7 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import login from "./pages/login";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const routing = (
   <Router>
