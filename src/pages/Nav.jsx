@@ -5,17 +5,17 @@ function Nav() {
   return (
     <div className="navBar">
       <div className="header">
-        <h1 style={{ color: "purple" }}>StüPay</h1>
+        <h1 style={{ color: "purple" }}>Büdge-it</h1>
       </div>
       <ul className="navItems">
         <Link className="navItem" to="/home">
           <li>HOME</li>
         </Link>
-        <Link className="navItem" to="/expenses">
-          <li>EXPENSES</li>
+        <Link className="navItem" to="/report">
+          <li>REPORT</li>
         </Link>
-        <Link className="navItem" to="/account">
-          <li>ACCOUNT</li>
+        <Link className="navItem" to="/cashflow">
+          <li>CASH FLOW</li>
         </Link>
       </ul>
     </div>
