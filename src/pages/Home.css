@@ -1,0 +1,41 @@
+.vcenter {
+	display: flex;
+	min-height: 90vh;
+	align-items: center;
+}
+
+.bg-yellow {
+	background-color: #EEA702 !important;
+}
+
+.bg-purple {
+	background-color: #6202EE !important;
+}
+
+.fg-purple {
+	color: #6202EE !important;
+}
+
+.bg-purple-faded {
+	background-color: #D9C2FB !important;
+}
+
+.fg-purple-faded {
+	color: #D9C2FB !important;
+}
+
+h2 {
+	text-align: left;
+}
+
+.category-name {
+	text-align: left;
+}
+
+.category-value {
+	text-align: right;
+}
+
+.spacer {
+	height: 2vh;
+}

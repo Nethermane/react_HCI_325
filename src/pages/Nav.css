@@ -1,0 +1,41 @@
+.header {
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navBar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+  background: white;
+  color: gray;
+  border-bottom: 1px solid lightgray;
+}
+
+.navItems {
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+
+.navItem {
+  color: gray;
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+  align-items: center;
+}
+
+.navItem i {
+  margin-right: 5px;
+}
+
+.navItem:hover {
+  color: purple;
+  text-decoration: none;
+}
