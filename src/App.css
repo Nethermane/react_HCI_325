@@ -31,8 +31,10 @@
   color: gray;
   font-weight: bold;
   text-decoration: none;
+  align-items: center;
 }
 
 .navItem:hover {
   color: purple;
+  text-decoration: none;
 }
