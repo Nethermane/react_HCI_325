@@ -7,6 +7,7 @@ function SideNav() {
     <ul className="sideNav">
       <li className="item">
         <Link className="text" to="./addgoal">
+          <i class="fa fa-bullseye"></i>
           Add Goal
         </Link>
       </li>
@@ -17,7 +18,7 @@ function SideNav() {
       </li>
       <li className="item">
         <Link className="text" to="./addincome">
-          dd Income
+          Add Income
         </Link>
       </li>
     </ul>

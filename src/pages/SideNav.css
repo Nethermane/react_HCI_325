@@ -12,7 +12,14 @@
 .text {
   color: gray;
   text-decoration: none;
-  display: block;
+  padding-right: 1.75rem;
+  padding-left: 1.75 rem;
+}
+
+.text i {
+  margin-right: 5px;
+  margin-left: 10px;
+  margin-top: 3px;
 }
 
 .text:hover {
@@ -26,5 +33,9 @@
   padding-left: 0;
   text-decoration: none;
   display: block;
-  border-bottom: 1px solid purple;
+  border-bottom: 1px solid lightgray;
+}
+
+.item:hover {
+  border-right: 3px solid gray;
 }

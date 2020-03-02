@@ -19,7 +19,7 @@ function App() {
         <Nav />
         <Container>
           <Row>
-            <Col xs={3}>
+            <Col className="sidenav" xs={3}>
               <SideNav />
             </Col>
             <Col xs={12}>
