@@ -1,10 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, withRouter } from "react-router-dom";
 import "./App.css";
 import Nav from "./pages/Nav";
 import SideNav from "./pages/SideNav";
 import Home from "./pages/Home";
-import Reports from "./pages/Report";
+import login from "./pages/login";
+import Expenses from "./pages/Report";
 import Account from "./pages/CashFlow";
 import AddExpense from "./pages/AddExpense";
 import AddGoal from "./pages/AddGoal";
@@ -12,31 +13,31 @@ import AddIncome from "./pages/AddIncome";
 
 import { Container, Row, Col } from "react-bootstrap";
 
-function App() {
+function App(props) {
   return (
-    <Router>
       <div className="App">
-        <Nav />
-        <Container fluid>
+      {props.location.pathname !== '/login' ? <Nav /> : null}
+        <Container>
           <Row>
-            <Col xs={2}>
-              <SideNav />
+            <Col className="sidenav" xs={3}>
+              {props.location.pathname !== '/login' ? <SideNav /> : null}
             </Col>
             <Col className="page" xs={10}>
               <Switch>
+              <Route exact path="/" component={Home} />
                 <Route exact path="/home" component={Home} />
                 <Route path="/reports" component={Reports} />
                 <Route path="/cashflows" component={Account} />
                 <Route path="/addgoal" component={AddGoal} />
                 <Route path="/addexpense" component={AddExpense} />
                 <Route path="/addincome" component={AddIncome} />
+                <Route path="/login" component={login} />
               </Switch>
             </Col>
           </Row>
         </Container>
       </div>
-    </Router>
   );
 }
 
-export default App;
+export default withRouter(App);
