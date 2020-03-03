@@ -17,9 +17,9 @@ function App(props) {
   return (
       <div className="App">
       {props.location.pathname !== '/login' ? <Nav /> : null}
-        <Container>
+        <Container fluid>
           <Row>
-            <Col className="sidenav" xs={3}>
+            <Col className="sideNavCol" xs={2}>
               {props.location.pathname !== '/login' ? <SideNav /> : null}
             </Col>
             <Col className="page" xs={10}>

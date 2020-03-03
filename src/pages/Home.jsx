@@ -94,7 +94,7 @@ function Home() {
     <div class="vcenter">
       <Container fluid>
         <Row>
-          <Col md={6}>
+          <Col md={5}>
             <Pie />
           </Col>
           <Col md={6}>
@@ -110,6 +110,7 @@ function Home() {
             <div class="spacer" />
             <Category name="Actual Therapy" spent="0" budget="2" />
           </Col>
+          <Col md={1}></Col>
         </Row>
       </Container>
     </div>
