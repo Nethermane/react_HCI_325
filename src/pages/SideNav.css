@@ -9,24 +9,6 @@
   overflow-x: hidden; /* Disable horizontal scroll */
 }
 
-.text {
-  color: gray;
-  text-decoration: none;
-  padding-right: 1.75rem;
-  padding-left: 1.75 rem;
-}
-
-.text i {
-  margin-right: 5px;
-  margin-left: 10px;
-  margin-top: 3px;
-}
-
-.text:hover {
-  color: purple;
-  text-decoration: none;
-}
-
 .item {
   padding-top: 8px;
   padding-bottom: 8px;
@@ -38,4 +20,24 @@
 
 .item:hover {
   border-right: 3px solid gray;
+}
+
+.text {
+  color: gray;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  padding-left: 30px;
+}
+
+.text .icon {
+  margin-right: 5px;
+  margin-left: 10px;
+  padding-left: 5px;
+}
+
+.text:hover {
+  color: purple;
+  text-decoration: none;
 }

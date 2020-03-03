@@ -1,18 +1,18 @@
-.header {
-  width: 30%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
 .navBar {
   display: flex;
   justify-content: space-around;
   align-items: center;
   min-height: 10vh;
-  background: white;
+  background-color: purple;
   color: gray;
   border-bottom: 1px solid lightgray;
+}
+
+.header {
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .navItems {
@@ -21,21 +21,23 @@
   justify-content: space-around;
   align-items: center;
   list-style: none;
+  margin-bottom: 0;
 }
 
 .navItem {
-  color: gray;
+  color: white;
   font-weight: bold;
   font-size: 18px;
   text-decoration: none;
   align-items: center;
+  display: flex;
 }
 
-.navItem i {
-  margin-right: 5px;
+.navItem .icon {
+  padding-right: 5px;
 }
 
 .navItem:hover {
-  color: purple;
+  color: lavender;
   text-decoration: none;
 }

@@ -97,7 +97,7 @@ function Home() {
           <Col md={6}>
             <Pie />
           </Col>
-          <Col md={5}>
+          <Col md={6}>
             <h2 class="fg-purple">This Week</h2>
             <div class="spacer" />
             <Category name="Food" spent="50" budget="150" />
@@ -110,7 +110,6 @@ function Home() {
             <div class="spacer" />
             <Category name="Actual Therapy" spent="0" budget="2" />
           </Col>
-          <Col md={1}></Col>
         </Row>
       </Container>
     </div>

@@ -4,7 +4,7 @@ import "./App.css";
 import Nav from "./pages/Nav";
 import SideNav from "./pages/SideNav";
 import Home from "./pages/Home";
-import Expenses from "./pages/Report";
+import Reports from "./pages/Report";
 import Account from "./pages/CashFlow";
 import AddExpense from "./pages/AddExpense";
 import AddGoal from "./pages/AddGoal";
@@ -17,16 +17,16 @@ function App() {
     <Router>
       <div className="App">
         <Nav />
-        <Container>
+        <Container fluid>
           <Row>
-            <Col className="sidenav" xs={3}>
+            <Col xs={2}>
               <SideNav />
             </Col>
-            <Col xs={12}>
+            <Col className="page" xs={10}>
               <Switch>
                 <Route exact path="/home" component={Home} />
-                <Route path="/expenses" component={Expenses} />
-                <Route path="/account" component={Account} />
+                <Route path="/reports" component={Reports} />
+                <Route path="/cashflows" component={Account} />
                 <Route path="/addgoal" component={AddGoal} />
                 <Route path="/addexpense" component={AddExpense} />
                 <Route path="/addincome" component={AddIncome} />
