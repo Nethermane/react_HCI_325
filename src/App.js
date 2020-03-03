@@ -5,7 +5,7 @@ import Nav from "./pages/Nav";
 import SideNav from "./pages/SideNav";
 import Home from "./pages/Home";
 import login from "./pages/login";
-import Expenses from "./pages/Report";
+import Reports from "./pages/Report";
 import Account from "./pages/CashFlow";
 import AddExpense from "./pages/AddExpense";
 import AddGoal from "./pages/AddGoal";
