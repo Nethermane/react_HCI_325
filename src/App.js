@@ -22,12 +22,12 @@ function App(props) {
             <Col className="sidenav" xs={3}>
               {props.location.pathname !== '/login' ? <SideNav /> : null}
             </Col>
-            <Col xs={12}>
+            <Col className="page" xs={10}>
               <Switch>
               <Route exact path="/" component={Home} />
                 <Route exact path="/home" component={Home} />
-                <Route path="/expenses" component={Expenses} />
-                <Route path="/account" component={Account} />
+                <Route path="/reports" component={Reports} />
+                <Route path="/cashflows" component={Account} />
                 <Route path="/addgoal" component={AddGoal} />
                 <Route path="/addexpense" component={AddExpense} />
                 <Route path="/addincome" component={AddIncome} />

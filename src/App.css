@@ -1,3 +1,8 @@
 .App {
   text-align: center;
 }
+
+.page {
+  text-align: center;
+  display: inline-block;
+}
