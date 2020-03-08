@@ -25,7 +25,7 @@
 }
 
 .navItem {
-  color: white;
+  color: rgb(220, 168, 224);
   font-weight: bold;
   font-size: 18px;
   text-decoration: none;
@@ -38,6 +38,10 @@
 }
 
 .navItem:hover {
-  color: lavender;
+  color: white;
   text-decoration: none;
+}
+
+.navBar .active {
+  color: white;
 }

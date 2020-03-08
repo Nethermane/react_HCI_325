@@ -1,6 +1,6 @@
 import React from "react";
 import "./Nav.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   faHome,
   faClipboardList,
@@ -16,28 +16,28 @@ function Nav() {
       </div>
       <ul className="navItems">
         <li>
-          <Link className="navItem" to="/home">
+          <NavLink className="navItem" to="/home" activeClassName="active" >
             <div className="icon">
               <FontAwesomeIcon icon={faHome} />
             </div>
             HOME
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link className="navItem" to="/reports">
+          <NavLink className="navItem" to="/reports" activeClassName="active">
             <div className="icon">
               <FontAwesomeIcon icon={faClipboardList} />
             </div>
             REPORTS
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link className="navItem" to="/cashflows">
+          <NavLink className="navItem" to="/cashflows" activeClassName="active">
             <div className="icon">
               <FontAwesomeIcon icon={faWallet} />
             </div>
             CASH FLOWS
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </div>
