@@ -24,6 +24,7 @@ function App(props) {
           </Col>
           <Col className="page" xs={10}>
             <Switch>
+
               <Route exact path="/" component={Home} />
               <Route exact path="/home" component={Home} />
               <Route path="/reports" component={Reports} />
