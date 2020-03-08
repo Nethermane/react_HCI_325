@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./SideNav.css";
 import {
   faBullseye,
@@ -12,28 +12,28 @@ function SideNav() {
   return (
     <ul className="sideNav">
       <li className="item">
-        <Link className="text" to="./addgoal">
+        <NavLink className="text" to="./addgoal" activeClassName="active">
           <div className="icon">
             <FontAwesomeIcon icon={faBullseye} />
           </div>
           Add Goal
-        </Link>
+        </NavLink>
       </li>
       <li className="item">
-        <Link className="text" to="./addexpense">
+        <NavLink className="text" to="./addexpense" activeClassName="active">
           <div className="icon">
             <FontAwesomeIcon icon={faMoneyCheckAlt} />
           </div>
           Add Expense
-        </Link>
+        </NavLink>
       </li>
       <li className="item">
-        <Link className="text" to="./addincome">
+        <NavLink className="text" to="./addincome" activeClassName="active">
           <div className="icon">
             <FontAwesomeIcon icon={faSuitcase} />
           </div>
           Add Income
-        </Link>
+        </NavLink>
       </li>
     </ul>
   );

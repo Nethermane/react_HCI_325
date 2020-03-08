@@ -41,3 +41,8 @@
   color: purple;
   text-decoration: none;
 }
+
+.item .active {
+  color: purple;
+  font-weight: bold;
+}
