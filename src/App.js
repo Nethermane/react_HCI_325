@@ -22,7 +22,7 @@ function App(props) {
           <Col className="sideNavCol" xs={2}>
             {props.location.pathname !== "/login" ? <SideNav /> : null}
           </Col>
-          <Col className="page" xs={10}>
+          <Col className="page" xs={10} style={{minHeight:"90vh"}}>
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/home" component={Home} />
