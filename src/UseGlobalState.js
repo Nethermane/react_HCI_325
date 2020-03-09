@@ -33,7 +33,7 @@ const initialState = {
     }
   ],
   goal: [{ id: 1, name: "phone", frequency: "monthly", amount: "100" }],
-  category: [{ id: 1, name: "food", max: 200 }]
+  categories: [{ id: 1, name: "food", max: 200 }]
 };
 
 const globalStateReducer = (state, action) => {
@@ -114,7 +114,7 @@ const useGlobalState = () => {
     });
   };
 
-  const setCategoris = ({ id, name, max }) => {
+  const setCategories = ({ id, name, max }) => {
     dispatch({
       type: SET_GOAL,
       payload: { id, name, max }
@@ -130,7 +130,7 @@ const useGlobalState = () => {
     expenses: { ...state.expenses },
     setGoals,
     goals: { ...state.goals },
-    setCategoris,
+    setCategories,
     categories: { ...state.categories }
   };
 };
