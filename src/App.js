@@ -10,6 +10,7 @@ import Account from "./pages/CashFlow";
 import AddExpense from "./pages/AddExpense";
 import AddGoal from "./pages/AddGoal";
 import AddIncome from "./pages/AddIncome";
+import categories from "./pages/Categories";
 
 import { Container, Row, Col } from "react-bootstrap";
 
@@ -32,6 +33,7 @@ function App(props) {
               <Route path="/addexpense" component={AddExpense} />
               <Route path="/addincome" component={AddIncome} />
               <Route path="/login" component={login} />
+              <Route path="/categories" component={categories} />
             </Switch>
           </Col>
         </Row>
