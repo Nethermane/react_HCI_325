@@ -5,7 +5,8 @@ class AddGoal extends React.Component {
     super();
 
     this.state = {
-      goals: [{ label: "New Phone", amount: "10", frequency: "monthly" }, { label: "A car", amount: "50", frequency: "weekly" }]
+      goals: [{label: "New Phone", amount: "10", frequency: "monthly" }, { label: "A car", amount: "50", frequency: "weekly" }],
+      frequency: "day"
     };
   }
   removeGoal(goal, index) {
@@ -13,39 +14,39 @@ class AddGoal extends React.Component {
     newState.goals.splice(index, 1);
     this.setState(newState)
   }
-  addGoal(goal) {
-    var newState = this.state;
-    newState.goals.add(goal);
-    this.setState(newState)
+  addGoal() {
+    this.setState(prevState => ({
+      goals: [...prevState.goals, {amount:prevState.amount,frequency:prevState.frequency, label:prevState.label}]
+    }))
   }
   render() {
     let existingGoals = this.state.goals.map((goal, index) =>
       <tr>
         <td>{goal.label}</td>
         <td>${goal.amount}/{goal.frequency}</td>
-        <td><button onClick={() => this.removeGoal(goal,index)}>&#10060;</button></td>
+        <td><button onClick={() => this.removeGoal(goal, index)}>&#10060;</button></td>
       </tr >
     )
     return (
       <div style={{ width: "100%", height: "100%" }}>
-        <form style={{ margin: "auto", marginTop: "10%" }}>
+        <form style={{ margin: "auto", marginTop: "10%" }} onSubmit={e => {e.preventDefault();}}>
           <div style={{ display: "inline-block" }}>
             <label>
               I want to set aside $
-        <input type="text" name="amount" size="5" placeholder="5" />
+        <input type="text" name="amount" size="5" placeholder="5" onChange={event => this.setState({...this.state, amount: event.target.value})} />
               &nbsp;each&nbsp;
-        <select>
+        <select onChange={event => this.setState({...this.state, frequency: event.target.value})}>
                 <option value="day">day</option>
                 <option value="week">week</option>
                 <option value="month">month</option>
                 <option value="year">year</option>
               </select>
               &nbsp;for&nbsp;
-      <input type="text" name="amount" size="10" placeholder="college" />
+      <input type="text" name="label" size="10" placeholder="college" onChange={event => this.setState({...this.state, label: event.target.value})}/>
             </label>
           </div>
           <br />
-          <input type="submit" value="Save"></input>
+          <input type="submit" value="Save" onClick={() => this.addGoal()}></input>
         </form>
         <table style={{ width: "60%", margin: "auto", marginTop: "10%" }}>
           <tbody>
