@@ -114,7 +114,7 @@ const useGlobalState = () => {
     });
   };
 
-  const setCategoris = ({ id, name, max }) => {
+  const setCategories = ({ id, name, max }) => {
     dispatch({
       type: SET_GOAL,
       payload: { id, name, max }
@@ -130,7 +130,7 @@ const useGlobalState = () => {
     expenses: { ...state.expenses },
     setGoals,
     goals: { ...state.goals },
-    setCategoris,
+    setCategories,
     categories: { ...state.categories }
   };
 };
