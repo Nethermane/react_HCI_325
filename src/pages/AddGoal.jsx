@@ -1,11 +1,11 @@
 import React from "react";
-
+import { Button, Form, Dropdown } from "react-bootstrap";
 class AddGoal extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      goals: [{label: "New Phone", amount: "10", frequency: "monthly" }, { label: "A car", amount: "50", frequency: "weekly" }],
+      goals: [{ label: "New Phone", amount: "10", frequency: "monthly" }, { label: "A car", amount: "50", frequency: "weekly" }],
       frequency: "day"
     };
   }
@@ -16,8 +16,12 @@ class AddGoal extends React.Component {
   }
   addGoal() {
     this.setState(prevState => ({
-      goals: [...prevState.goals, {amount:prevState.amount,frequency:prevState.frequency, label:prevState.label}]
+      goals: [...prevState.goals, { amount: prevState.amount, frequency: prevState.frequency, label: prevState.label }],
+      frequency: "day",
+      amount: "",
+      label: ""
     }))
+    document.getElementById("inputForm").reset();
   }
   render() {
     let existingGoals = this.state.goals.map((goal, index) =>
@@ -29,29 +33,29 @@ class AddGoal extends React.Component {
     )
     return (
       <div style={{ width: "100%", height: "100%" }}>
-        <form style={{ margin: "auto", marginTop: "10%" }} onSubmit={e => {e.preventDefault();}}>
+        <form id="inputForm" tyle={{ margin: "auto", marginTop: "10%" }} onSubmit={e => { e.preventDefault(); }}>
           <div style={{ display: "inline-block" }}>
             <label>
               I want to set aside $
-        <input type="text" name="amount" size="5" placeholder="5" onChange={event => this.setState({...this.state, amount: event.target.value})} />
-              &nbsp;each&nbsp;
-        <select onChange={event => this.setState({...this.state, frequency: event.target.value})}>
-                <option value="day">day</option>
-                <option value="week">week</option>
-                <option value="month">month</option>
-                <option value="year">year</option>
-              </select>
+              <Form.Control type="text" size="5" placeholder="5" onChange={event => this.setState({ ...this.state, amount: event.target.value })}/>
+              &nbsp;every&nbsp;
+              <Form.Control as="select" onChange={event => this.setState({ ...this.state, frequency: event.target.value })}>
+                <option>day</option>
+                <option>week</option>
+                <option>month</option>
+                <option>year</option>
+              </Form.Control>
               &nbsp;for&nbsp;
-      <input type="text" name="label" size="10" placeholder="college" onChange={event => this.setState({...this.state, label: event.target.value})}/>
+              <Form.Control type="text" size="10" placeholder="college" onChange={event => this.setState({ ...this.state, label: event.target.value })} />
             </label>
           </div>
           <br />
-          <input type="submit" value="Save" onClick={() => this.addGoal()}></input>
+          <Button type="submit" value="Save" onClick={() => this.addGoal()}>Submit</Button>
         </form>
         <table style={{ width: "60%", margin: "auto", marginTop: "10%" }}>
           <tbody>
             <tr>
-              <th>Label</th>
+              <th>Goal</th>
               <th>Amount</th>
               <th></th>
             </tr>
