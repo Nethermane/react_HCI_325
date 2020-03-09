@@ -1,12 +1,12 @@
 import React from "react";
-import { BrowserRouter, Switch, Route, withRouter } from "react-router-dom";
+import { Switch, Route, withRouter } from "react-router-dom";
 import "./App.css";
 import Nav from "./pages/Nav";
 import SideNav from "./pages/SideNav";
 import Home from "./pages/Home";
 import login from "./pages/login";
 import Reports from "./pages/Report";
-import Account from "./pages/CashFlow";
+import CashFlows from "./pages/CashFlow";
 import AddExpense from "./pages/AddExpense";
 import AddGoal from "./pages/AddGoal";
 import AddIncome from "./pages/AddIncome";
