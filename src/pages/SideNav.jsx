@@ -4,7 +4,8 @@ import "./SideNav.css";
 import {
   faBullseye,
   faSuitcase,
-  faMoneyCheckAlt
+  faMoneyCheckAlt,
+  faListAlt
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -31,6 +32,14 @@ function SideNav() {
         <NavLink className="text" to="./addincome" activeClassName="active">
           <div className="icon">
             <FontAwesomeIcon icon={faSuitcase} />
+          </div>
+          Add Income
+        </NavLink>
+      </li>
+      <li className="item">
+        <NavLink className="text" to="./categories" activeClassName="active">
+          <div className="icon">
+            <FontAwesomeIcon icon={faListAlt} />
           </div>
           Add Income
         </NavLink>
