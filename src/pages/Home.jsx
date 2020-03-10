@@ -134,7 +134,7 @@ class Pie extends React.Component {
 }
 
 function Home() {
-  const state = useGlobalState();
+  const state = JSON.parse(JSON.stringify(useGlobalState()));
   
   var categories = {};
 

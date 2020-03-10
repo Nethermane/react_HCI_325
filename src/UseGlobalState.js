@@ -95,7 +95,7 @@ const initialState = {
     { id: 2, name: "Living", max: 500 },
     { id: 3, name: "Entertainment", max: 50 },
     { id: 3, name: "School", max: 250 },
-    { id: 3, name: "Coffee", max: 50 },
+    { id: 3, name: "Coffee", max: 175 },
     { id: 3, name: "Food", max: 250 }
   ]
 };

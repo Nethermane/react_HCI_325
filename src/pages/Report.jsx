@@ -47,7 +47,7 @@ function FilterAndSortByDate(data) {
 }
 
 function Report() {
-  const state = useGlobalState();
+  const state = JSON.parse(JSON.stringify(useGlobalState()));
   var today = new Date();
   console.log(state.expenses)
   var incomes = state.incomes;
