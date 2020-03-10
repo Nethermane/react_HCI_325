@@ -1,13 +1,12 @@
 import React from "react";
+import useGlobalState from "../UseGlobalState";
+import InfoForm from "../components/InfoForm";
+
 
 function Categories() {
-    // let existingGoals = this.state.goals.map((goal, index) =>
-    //     <tr>
-    //         <td>la</td>
-    //         <td>a</td>
-    //         <td></td>
-    //     </tr >
-    // )
+    const state = useGlobalState();
+    let categories_table =<p></p>
+    console.log(state)
     return (
         <table style={{ width: "60%", margin: "auto", marginTop: "10%" }}>
             <tbody>

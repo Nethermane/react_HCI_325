@@ -32,7 +32,7 @@ const initialState = {
       frequency: "monthly"
     }
   ],
-  goal: [{ id: 1, name: "phone", frequency: "monthly", amount: "100" }],
+  goals: [{ id: 1, name: "phone", frequency: "monthly", amount: "100" }],
   category: [{ id: 1, name: "food", max: 200 }]
 };
 
@@ -86,38 +86,38 @@ export const GlobalStateProvider = ({ children }) => {
 const useGlobalState = () => {
   const [state, dispatch] = useContext(GlobalStateContext);
 
-  const setAccounts = ({ id, name, amount }) => {
+  const setAccounts = ([{id, name, amount}]) => {
     dispatch({
       type: SET_ACCOUNTS,
-      payload: { id, name, amount }
+      payload: [{ id, name, amount }]
     });
   };
 
-  const setIncomes = ({ id, name, amount, date, frequency }) => {
+  const setIncomes = ([{id, name, amount, date, frequency}]) => {
     dispatch({
       type: SET_INCOME,
-      payload: { id, name, amount, date, frequency }
+      payload: [{ id, name, amount, date, frequency }]
     });
   };
 
-  const setExpenses = ({ id, name, amount, date, frequency }) => {
+  const setExpenses = ([{id, name, amount, date, frequency}]) => {
     dispatch({
       type: SET_EXPENSES,
-      payload: { id, name, amount, date, frequency }
+      payload: [{ id, name, amount, date, frequency }]
     });
   };
 
-  const setGoals = ({ id, name, amount, frequency }) => {
+  const setGoals = ([{id, name, amount, frequency}]) => {
     dispatch({
       type: SET_GOAL,
-      payload: { id, name, amount, frequency }
+      payload: [{ id, name, amount, frequency }]
     });
   };
 
-  const setCategories = ({ id, name, max }) => {
+  const setCategories = ([{id, name, max}]) => {
     dispatch({
       type: SET_GOAL,
-      payload: { id, name, max }
+      payload: [{ id, name, max }]
     });
   };
 
