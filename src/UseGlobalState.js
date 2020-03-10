@@ -17,20 +17,20 @@ const initialState = {
   incomes: [
     {
       id: 1,
-      name: "income1",
+      name: "Scholarship",
       amount: "1000",
       date: "2020-01-01",
       duration: "4",
-      category: "Food",
+      category: "Scholarship",
       frequency: "monthly"
     },
     {
       id: 2,
-      name: "income2",
-      amount: "1000",
+      name: "McWendy's",
+      amount: "120",
       date: "2020-02-02",
-      category: "Food",
-      duration: "1",
+      category: "Work",
+      duration: "4",
       frequency: "monthly"
     }
   ],
@@ -46,11 +46,47 @@ const initialState = {
     },
     {
       id: 2,
-      name: "netflix",
+      name: "Notflex",
       amount: "7",
       date: "2020-01-01",
       duration: "3",
       category: "Entertainment",
+      frequency: "monthly"
+    },
+    {
+      id: 3,
+      name: "Tsarbucks",
+      amount: "50",
+      date: "2020-01-01",
+      duration: "3",
+      category: "Coffee",
+      frequency: "monthly"
+    },
+    {
+      id: 4,
+      name: "Jim Borton's",
+      amount: "250",
+      date: "2020-01-01",
+      duration: "3",
+      category: "Coffee",
+      frequency: "monthly"
+    },
+    {
+      id: 5,
+      name: "Pizza Bell",
+      amount: "120",
+      date: "2020-01-01",
+      duration: "3",
+      category: "Food",
+      frequency: "monthly"
+    },
+    {
+      id: 5,
+      name: "Basic Foods",
+      amount: "2",
+      date: "2020-01-01",
+      duration: "3",
+      category: "Food",
       frequency: "monthly"
     }
   ],
@@ -58,7 +94,9 @@ const initialState = {
   categories: [
     { id: 2, name: "Living", max: 500 },
     { id: 3, name: "Entertainment", max: 50 },
-    { id: 3, name: "School", max: 250 }
+    { id: 3, name: "School", max: 250 },
+    { id: 3, name: "Coffee", max: 50 },
+    { id: 3, name: "Food", max: 250 }
   ]
 };
 
