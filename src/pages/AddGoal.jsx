@@ -28,7 +28,6 @@ import useGlobalState from "../UseGlobalState";
 // render() {
 function AddGoal() {
   const state = useGlobalState()
-  console.log(state.goals)
   var existingGoals = []
   var i = 0;
   var existingVal = []

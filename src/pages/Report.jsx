@@ -49,7 +49,7 @@ function FilterAndSortByDate(data) {
 function Report() {
   const state = useGlobalState();
   var today = new Date();
-  
+  console.log(state.expenses)
   var incomes = state.incomes;
   var expenses = state.expenses;
   var combined = []
