@@ -57,7 +57,7 @@ function AddGoal() {
   // )
   return (
     <div style={{ width: "100%", height: "100%" }}>
-      <form id="inputForm" tyle={{ margin: "auto", marginTop: "10%" }} onSubmit={e => { e.preventDefault(); }}>
+      <form id="inputForm" style={{ margin: "auto", marginTop: "10%" }} onSubmit={e => { e.preventDefault(); }}>
         <div style={{ display: "inline-block" }}>
           <label>
             I want to set aside $
