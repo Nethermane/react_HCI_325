@@ -56,6 +56,15 @@ function AddExpense(props) {
                     </Form.Group>
                 </div>
                 <Button variant="secondary" type="submit" onClick={() => {
+                    let nam = document.getElementById("addNewExpenseName").value.toString();
+                    let amoun = document.getElementById("addNewExpenseAmount").value.toString();
+                    let dat = document.getElementById("addNewStartDate").value.toString()
+                    let duratio = document.getElementById("addNewDuration").value.toString()
+                    let frequenc = document.getElementById("frequency").value.toString()
+                    let categor = document.getElementById("category").value.toString()
+
+                    if(!(nam && amoun && dat && duratio && frequenc && categor))
+                        return;
                     state.setExpenses([{ id: Math.random(),
                         name: document.getElementById("addNewExpenseName").value,
                         amount: document.getElementById("addNewExpenseAmount").value,
