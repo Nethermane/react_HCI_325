@@ -32,12 +32,18 @@ function AddGoal() {
   var i = 0;
   var existingVal = []
   while (i in state.goals) {
-    existingVal.push({id:state.goals[i].id, name: state.goals[i].name, goals:state.goals[i].name, frequency: state.goals[i].name})
+    existingVal.push({ id: state.goals[i].id, name: state.goals[i].name, amount: state.goals[i].amount, frequency: state.goals[i].frequency })
     existingGoals.push(
       <tr>
         <td>{state.goals[i].name}</td>
         <td>${state.goals[i].amount}/{state.goals[i].frequency}</td>
-        <td><button>&#10060;</button></td>
+        <td><button onClick={() => {
+          console.log(existingVal)
+          console.log(i)
+          var temp = existingVal.filter(e => e.id != existingVal[i-1].id)
+          state.setGoals(temp)
+        }
+        }>&#10060;</button></td>
       </tr>
     )
     i++;
