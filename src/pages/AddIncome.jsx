@@ -2,7 +2,6 @@ import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useGlobalState from "../UseGlobalState";
-import DatePicker from "react-datepicker";
 function AddIncome(props) {
   const state = useGlobalState()
   const existingVal = []
