@@ -142,7 +142,7 @@ const useGlobalState = () => {
   //array of id, name, max
   const setCategories = (a) => {
     dispatch({
-      type: SET_GOAL,
+      type: SET_CATEGORY,
       payload: a
     });
   };
