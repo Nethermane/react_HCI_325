@@ -21,6 +21,7 @@ const initialState = {
       amount: "1000",
       date: "2020-01-01",
       duration: "4",
+      category: "Food",
       frequency: "monthly"
     },
     {
@@ -28,6 +29,7 @@ const initialState = {
       name: "income2",
       amount: "1000",
       date: "2020-02-02",
+      category: "Food",
       duration: "1",
       frequency: "monthly"
     }
@@ -35,23 +37,29 @@ const initialState = {
   expenses: [
     {
       id: 1,
-      name: "netflix",
-      amount: "7",
+      name: "Utilities",
+      amount: "50$",
       date: "2020-01-01",
       duration: "4",
+      category: "Living",
       frequency: "monthly"
     },
     {
-      id: 1,
+      id: 2,
       name: "netflix",
       amount: "7",
       date: "2020-01-01",
-      duration: "2",
+      duration: "3",
+      category: "Entertainment",
       frequency: "monthly"
     }
   ],
   goals: [{ id: 1, name: "phone", frequency: "monthly", amount: "100" }],
-  categories: [{ id: 1, name: "food", max: 200 }]
+  categories: [
+    { id: 2, name: "Living", max: 500 },
+    { id: 3, name: "Entertainment", max: 50 },
+    { id: 3, name: "School", max: 250 }
+  ]
 };
 
 const globalStateReducer = (state, action) => {

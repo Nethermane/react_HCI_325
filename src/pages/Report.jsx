@@ -10,7 +10,7 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 function FilterAndSortByDate(data) {
   var items = [];
-  
+ 
   var today = new Date();
   var last_year = new Date();
   last_year.setFullYear(today.getFullYear() - 1);

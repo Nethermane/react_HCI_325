@@ -1,8 +1,52 @@
 import React from "react";
 import Chart from "chart.js";
 import { Container, Row, Col } from "react-bootstrap";
+import useGlobalState from "../UseGlobalState";
 
 import "./Home.css";
+
+
+function mangle(categories, data) {
+  var today = new Date();
+
+  var first_day_of_month = new Date (
+      today.getFullYear(), today.getMonth(), 1);
+    
+  var last_day_of_month = new Date (
+      today.getFullYear(), today.getMonth() + 1, 0);
+  
+  for (var i in data) {
+    var date = new Date(Date.parse(data[i].date));
+    date = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    
+    // Pretend everything is monthly for now
+    var last = new Date(date.getFullYear(), date.getMonth() + parseInt(data[i].duration), date.getDate());
+    
+    if (first_day_of_month >= date
+        && last_day_of_month <= last) {
+        
+        console.log(data[i].category)
+        if (!(data[i].category in categories)) {
+            categories[data[i].category] = {
+                max: undefined,
+                amount: parseInt(data[i].amount)
+            }
+        }
+        else {
+            categories[data[i].category].amount += parseInt(data[i].amount);
+        }
+    }
+  }
+  
+  for (var c in categories) {
+    if (typeof categories[c].max === "undefined") {
+        categories[c].max = categories[c].amount;
+    }
+  }
+  
+  return categories;
+}
+
 
 class Category extends React.Component {
   constructor(props) {
@@ -90,6 +134,32 @@ class Pie extends React.Component {
 }
 
 function Home() {
+  const state = useGlobalState();
+  
+  var categories = {};
+
+  for (var c in state.categories) {
+    categories[state.categories[c].name] = {
+        max: state.categories[c].max,
+        amount: 0
+    };
+  }
+  
+  categories = mangle(categories, state.expenses);
+  
+  var category_html = [];
+  for (var c in categories) {
+    if (c == "undefined")
+      continue;
+    
+    category_html.push (
+        <div>
+        <div class="spacer" />
+        <Category name={c} spent={categories[c].amount} budget={categories[c].max} />
+        </div>
+    );
+  }
+  
   return (
     <div class="vcenter">
       <Container fluid>
@@ -98,7 +168,7 @@ function Home() {
             <Pie />
           </Col>
           <Col md={6}>
-            <h2 class="fg-purple">This Week</h2>
+            <h2 class="fg-purple">This Month</h2>
             <div class="spacer" />
             <Category name="Food" spent="50" budget="150" />
             <div class="spacer" />
@@ -109,6 +179,7 @@ function Home() {
             <Category name="Retail Therapy" spent="4000" budget="40" />
             <div class="spacer" />
             <Category name="Actual Therapy" spent="0" budget="2" />
+            {category_html}
           </Col>
           <Col md={1}></Col>
         </Row>
