@@ -17,3 +17,23 @@
   width: 100%;
   margin-right: 0.5em;
 }
+
+.edit {
+  display: flex;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.frequency {
+  display: inline-block;
+  text-align: right;
+  width: 100%;
+  margin-right: 0.5em;
+}
+
+.date {
+  display: inline-block;
+  text-align: right;
+  width: 100%;
+  margin-right: 0.5em;
+}

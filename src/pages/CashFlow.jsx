@@ -1,5 +1,6 @@
 import React from "react";
 import InfoForm from "../components/InfoForm";
+import EditForm from "../components/EditForm";
 import "./CashFlow.css";
 import useGlobalState from "../UseGlobalState";
 
@@ -20,15 +21,22 @@ function CashFlow() {
 
   for (var i in state.incomes) {
     incomesHtml.push(
-      <InfoForm type={state.incomes[i].name} amount={state.incomes[i].amount} />
+      <EditForm
+        type={state.incomes[i].name}
+        frequency={state.incomes[i].frequency}
+        date={state.incomes[i].date}
+        amount={state.incomes[i].amount}
+      />
     );
   }
 
   for (var e in state.expenses) {
     expensesHtml.push(
-      <InfoForm
+      <EditForm
         type={state.expenses[e].name}
         amount={state.expenses[e].amount}
+        frequency={state.incomes[e].frequency}
+        date={state.incomes[i].date}
       />
     );
   }
