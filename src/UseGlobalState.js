@@ -54,12 +54,8 @@ const initialState = {
       frequency: "monthly"
     }
   ],
-  goals: [{ id: 1, name: "phone", frequency: "monthly", amount: "100" }],
-  categories: [
-    { id: 2, name: "Living", max: 500 },
-    { id: 3, name: "Entertainment", max: 50 },
-    { id: 3, name: "School", max: 250 }
-  ]
+  goal: [{ id: 1, name: "phone", frequency: "monthly", amount: "100" }],
+  categories: [{ id: 1, name: "food", max: 200 }]
 };
 
 const globalStateReducer = (state, action) => {
@@ -112,35 +108,35 @@ export const GlobalStateProvider = ({ children }) => {
 const useGlobalState = () => {
   const [state, dispatch] = useContext(GlobalStateContext);
   //array of id, name, amount
-  const setAccounts = (a) => {
+  const setAccounts = a => {
     dispatch({
       type: SET_ACCOUNTS,
       payload: a
     });
   };
   //array of  id, name, amount, date, frequency
-  const setIncomes = (a) => {
+  const setIncomes = a => {
     dispatch({
       type: SET_INCOME,
       payload: a
     });
   };
   //array of  id, name, amount, date, frequency
-  const setExpenses = (a) => {
+  const setExpenses = a => {
     dispatch({
       type: SET_EXPENSES,
       payload: a
     });
   };
   //array of  id, name, amount, frequency
-  const setGoals = (a) => {
+  const setGoals = a => {
     dispatch({
       type: SET_GOAL,
       payload: a
     });
   };
-  //array of id, name, max
-  const setCategories = (a) => {
+
+  const setCategories = ({ a }) => {
     dispatch({
       type: SET_CATEGORY,
       payload: a

@@ -22,10 +22,10 @@ function CashFlow() {
   for (var i in state.incomes) {
     incomesHtml.push(
       <EditForm
-        type={state.incomes[i].name}
-        frequency={state.incomes[i].frequency}
-        date={state.incomes[i].date}
+        name={state.incomes[i].name}
         amount={state.incomes[i].amount}
+        frequency={state.incomes[i].frequency}
+        startDate={state.incomes[i].date}
       />
     );
   }
@@ -33,10 +33,10 @@ function CashFlow() {
   for (var e in state.expenses) {
     expensesHtml.push(
       <EditForm
-        type={state.expenses[e].name}
+        name={state.expenses[e].name}
         amount={state.expenses[e].amount}
-        frequency={state.incomes[e].frequency}
-        date={state.incomes[i].date}
+        frequency={state.expenses[e].frequency}
+        startDate={state.expenses[e].date}
       />
     );
   }
