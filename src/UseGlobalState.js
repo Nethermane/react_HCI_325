@@ -38,7 +38,7 @@ const initialState = {
     {
       id: 1,
       name: "Utilities",
-      amount: "50$",
+      amount: "50",
       date: "2020-01-01",
       duration: "4",
       category: "Living",

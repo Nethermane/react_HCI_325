@@ -169,16 +169,6 @@ function Home() {
           </Col>
           <Col md={6}>
             <h2 class="fg-purple">This Month</h2>
-            <div class="spacer" />
-            <Category name="Food" spent="50" budget="150" />
-            <div class="spacer" />
-            <Category name="Coffee" spent="20" budget="40" />
-            <div class="spacer" />
-            <Category name="Overspending Addiction" spent="500" budget="300" />
-            <div class="spacer" />
-            <Category name="Retail Therapy" spent="4000" budget="40" />
-            <div class="spacer" />
-            <Category name="Actual Therapy" spent="0" budget="2" />
             {category_html}
           </Col>
           <Col md={1}></Col>
