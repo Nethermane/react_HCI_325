@@ -31,7 +31,9 @@ function AddGoal() {
   console.log(state.goals)
   var existingGoals = []
   var i = 0;
+  var existingVal = []
   while (i in state.goals) {
+    existingVal.push({id:state.goals[i].id, name: state.goals[i].name, goals:state.goals[i].name, frequency: state.goals[i].name})
     existingGoals.push(
       <tr>
         <td>{state.goals[i].name}</td>
@@ -67,7 +69,7 @@ function AddGoal() {
           </label>
         </div>
         <br />
-        <Button type="submit" value="Save" onClick={() => state.setGoals([{ id: 5125, name: document.getElementById("label").value, amount: document.getElementById("amount").value, frequency: document.getElementById("frequency").value }])}>Submit</Button>
+        <Button type="submit" value="Save" onClick={() => state.setGoals([{ id: Math.random(), name: document.getElementById("label").value, amount: document.getElementById("amount").value, frequency: document.getElementById("frequency").value }, ...existingVal])}>Submit</Button>
       </form>
       <table style={{ width: "60%", margin: "auto", marginTop: "10%" }}>
         <tbody>
