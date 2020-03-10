@@ -46,7 +46,7 @@ function AddExpense(props) {
                 </div>
                 <div>
                     <Form.Group controlId="addNewStartDate">
-                        <Form.Control type="text" placeholder="Start Date" />
+                        <Form.Control type="text" placeholder="Start Date" defaultValue={(new Date().toISOString().split('T', 1))[0]}/>
                     </Form.Group>
                 </div>
                 <div>

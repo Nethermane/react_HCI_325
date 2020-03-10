@@ -3,7 +3,6 @@ import useGlobalState from "../UseGlobalState";
 import InfoForm from "../components/InfoForm";
 import { Button, Form, Dropdown } from "react-bootstrap";
 
-
 function Categories() {
     const state = useGlobalState()
     var existingCat = []

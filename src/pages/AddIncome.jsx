@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useGlobalState from "../UseGlobalState";
-
+import DatePicker from "react-datepicker";
 function AddIncome(props) {
   const state = useGlobalState()
   const existingVal = []
@@ -23,7 +23,7 @@ function AddIncome(props) {
         </Form.Group>
         <div>
           <Form.Group controlId="addNewStartDate">
-            <Form.Control type="text" placeholder="Start Date" />
+            <Form.Control type="text" placeholder="Start Date" defaultValue={(new Date().toISOString().split('T', 1))[0]}></Form.Control>
           </Form.Group>
         </div>
         <div>
