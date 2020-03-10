@@ -19,7 +19,16 @@ const initialState = {
       id: 1,
       name: "income1",
       amount: "1000",
-      date: "01/01",
+      date: "2020-01-01",
+      duration: "4",
+      frequency: "monthly"
+    },
+    {
+      id: 2,
+      name: "income2",
+      amount: "1000",
+      date: "2020-02-02",
+      duration: "1",
       frequency: "monthly"
     }
   ],
@@ -28,7 +37,16 @@ const initialState = {
       id: 1,
       name: "netflix",
       amount: "7",
-      date: "01/01",
+      date: "2020-01-01",
+      duration: "4",
+      frequency: "monthly"
+    },
+    {
+      id: 1,
+      name: "netflix",
+      amount: "7",
+      date: "2020-01-01",
+      duration: "2",
       frequency: "monthly"
     }
   ],
