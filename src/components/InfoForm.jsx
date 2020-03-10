@@ -1,5 +1,5 @@
 import React from "react";
-import "./Form.css";
+import "./InfoForm.css";
 
 function InfoForm(props) {
   return (
