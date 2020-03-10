@@ -41,7 +41,7 @@ function SideNav() {
           <div className="icon">
             <FontAwesomeIcon icon={faListAlt} />
           </div>
-          Add Income
+          Edit categories
         </NavLink>
       </li>
     </ul>

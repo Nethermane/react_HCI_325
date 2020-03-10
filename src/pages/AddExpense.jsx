@@ -13,7 +13,6 @@ function AddExpense(props) {
         existingVal.push({ id: state.expenses[i].id, name: state.expenses[i].name, amount: state.expenses[i].amount, date: state.expenses[i].date, frequency: state.expenses[i].date, duration: state.expenses[i].duration })
         i++;
     }
-    console.log(state.expenses)
 
     return (
         <div style={{ margin: "60px" }}>
