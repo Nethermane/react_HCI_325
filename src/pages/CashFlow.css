@@ -1,8 +1,13 @@
-.cashflows h {
+.cashflows p {
   display: inline-block;
   width: 100%;
   text-align: left;
-  border-bottom: 1px solid lightgray;
-  border-top: 1px solid lightgray;
+  border-bottom: 2px solid purple;
+  border-top: 2px solid purple;
   margin-top: 1em;
+  margin-bottom: 1em;
+  font-size: medium;
+  padding: 0.1em;
+  color: purple;
+  font-weight: 700;
 }

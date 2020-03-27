@@ -1,0 +1,20 @@
+.cashflow-row {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.cashflow-row .cf-item {
+  text-align: left;
+}
+
+.cashflow-row button {
+  border: none;
+  background-color: white;
+  text-align: left;
+  color: gray;
+}
+
+.cashflow-row button:hover {
+  color: purple;
+}
