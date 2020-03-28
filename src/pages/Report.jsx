@@ -278,21 +278,22 @@ function Report() {
   }
   
   var options = {
-    legend: {},
+    //axisX: { interval: 1, labelAngle: 140 },
+    axisX: { interval: 2 },
     data: [{
-      type: "line",
+      type: "spline",
       color: "black",
       showInLegend: true,
       legendText: "Net",
       dataPoints: month_net
     },{
-      type: "line",
+      type: "spline",
       color: "#4F81BC",
       showInLegend: true,
       legendText: "Income",
       dataPoints: month_inc
     },{
-      type: "line",
+      type: "spline",
       color: "#C0504E",
       showInLegend: true,
       legendText: "Expenses",
@@ -302,7 +303,7 @@ function Report() {
   
   return (
     <div>
-      <div style={{'height': '2vh'}}/>
+      <div style={{'height': '4vh'}}/>
       <h1 style={{"text-align": "center"}}>Monthly Reports</h1>
       <div style={{'height': '4vh'}}/>
       <Container>
