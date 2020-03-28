@@ -280,6 +280,7 @@ function Report() {
   var options = {
     //axisX: { interval: 1, labelAngle: 140 },
     axisX: { interval: 2 },
+    axisY: { prefix: "$" },
     data: [{
       type: "spline",
       color: "black",
