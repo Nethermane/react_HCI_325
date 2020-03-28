@@ -9,11 +9,6 @@ const SET_CATEGORY = "SET_CATEGORY";
 const GlobalStateContext = createContext();
 
 const initialState = {
-  accounts: [
-    { id: 1, name: "Savings", amount: "1000" },
-    { id: 2, name: "Credit", amount: "1000" },
-    { id: 3, name: "Cash", amount: "1000" }
-  ],
   incomes: [
     {
       id: 1,
@@ -81,7 +76,7 @@ const initialState = {
       frequency: "monthly"
     },
     {
-      id: 5,
+      id: 6,
       name: "Basic Foods",
       amount: "2",
       date: "2020-01-01",
@@ -92,11 +87,11 @@ const initialState = {
   ],
   goals: [{ id: 1, name: "phone", frequency: "monthly", amount: "100" }],
   categories: [
-    { id: 2, name: "Living", max: 500 },
-    { id: 3, name: "Entertainment", max: 50 },
+    { id: 1, name: "Living", max: 500 },
+    { id: 2, name: "Entertainment", max: 50 },
     { id: 3, name: "School", max: 250 },
-    { id: 3, name: "Coffee", max: 175 },
-    { id: 3, name: "Food", max: 250 }
+    { id: 4, name: "Coffee", max: 175 },
+    { id: 5, name: "Food", max: 250 }
   ]
 };
 
@@ -150,35 +145,35 @@ export const GlobalStateProvider = ({ children }) => {
 const useGlobalState = () => {
   const [state, dispatch] = useContext(GlobalStateContext);
   //array of id, name, amount
-  const setAccounts = (a) => {
+  const setAccounts = a => {
     dispatch({
       type: SET_ACCOUNTS,
       payload: a
     });
   };
   //array of  id, name, amount, date, frequency
-  const setIncomes = (a) => {
+  const setIncomes = a => {
     dispatch({
       type: SET_INCOME,
       payload: a
     });
   };
   //array of  id, name, amount, date, frequency
-  const setExpenses = (a) => {
+  const setExpenses = a => {
     dispatch({
       type: SET_EXPENSES,
       payload: a
     });
   };
   //array of  id, name, amount, frequency
-  const setGoals = (a) => {
+  const setGoals = a => {
     dispatch({
       type: SET_GOAL,
       payload: a
     });
   };
   //array of id, name, max
-  const setCategories = (a) => {
+  const setCategories = a => {
     dispatch({
       type: SET_CATEGORY,
       payload: a
