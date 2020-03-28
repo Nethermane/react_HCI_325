@@ -16,7 +16,7 @@ function InfoForm(props) {
             <div className="name cf-item">{name}</div>
           </Col>
           <Col>
-            <div className="amount cf-item">{amount}$</div>
+            <div className="amount cf-item">${amount}</div>
           </Col>
           <Col>
             <div className="frequency cf-item">{frequency}</div>

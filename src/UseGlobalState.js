@@ -43,7 +43,7 @@ const initialState = {
       id: 2,
       name: "Notflex",
       amount: "7",
-      date: "2020-01-01",
+      date: "2020-02-01",
       duration: "3",
       category: "Entertainment",
       frequency: "monthly"
@@ -52,7 +52,7 @@ const initialState = {
       id: 3,
       name: "Tsarbucks",
       amount: "50",
-      date: "2020-01-01",
+      date: "2020-03-01",
       duration: "3",
       category: "Coffee",
       frequency: "monthly"
@@ -61,10 +61,10 @@ const initialState = {
       id: 4,
       name: "Jim Borton's",
       amount: "250",
-      date: "2020-01-01",
+      date: "2020-03-15",
       duration: "3",
       category: "Coffee",
-      frequency: "monthly"
+      frequency: "one time"
     },
     {
       id: 5,

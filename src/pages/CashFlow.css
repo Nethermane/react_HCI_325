@@ -2,12 +2,49 @@
   display: inline-block;
   width: 100%;
   text-align: left;
-  border-bottom: 2px solid purple;
-  border-top: 2px solid purple;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  border-bottom: 1px solid lightgray;
+  border-top: 1px solid lightgray;
+  margin-top: 1em 1em;
   font-size: medium;
   padding: 0.1em;
-  color: purple;
+  color: gray;
   font-weight: 700;
+}
+
+.cashflows .summary {
+  display: inline-flex;
+  text-align: center;
+}
+
+.cashflows .summary span {
+  font-size: 50px;
+  padding-left: 10px;
+  margin: 40px 5px 5px 20px;
+}
+
+.cashflows .summary .incomes span {
+  border-right: 2px solid lightgray;
+  padding-right: 30px;
+  color: green;
+}
+
+.cashflows .summary .expenses span {
+  color: red;
+}
+
+.cashflows .summary .balance span {
+  color: gray;
+  font-size: 30px;
+  padding-top: 30px;
+  margin-left: 70px;
+}
+
+.cashflows .summary h3 {
+  font-size: 15px;
+  margin: 0px 0px 40px 40px;
+}
+
+.cashflows .summary .balance h3 {
+  font-size: 15px;
+  margin: 0px 0px 40px 80px;
 }
