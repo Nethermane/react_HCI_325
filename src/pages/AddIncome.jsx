@@ -2,6 +2,8 @@ import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useGlobalState from "../UseGlobalState";
+import DatePickerWrapper from "../components/DatePickerWrapper";
+
 function AddIncome(props) {
   const state = useGlobalState()
   const existingVal = []
@@ -20,9 +22,10 @@ function AddIncome(props) {
         <Form.Group controlId="addNewIncomeAmount">
           <Form.Control type="text" placeholder="Income Amount ($0)" />
         </Form.Group>
-        <div>
-          <Form.Group controlId="addNewStartDate">
-            <Form.Control type="text" placeholder="Start Date" defaultValue={(new Date().toISOString().split('T', 1))[0]}></Form.Control>
+        <div style={{ margin: "10px", width: "100%" }}>
+          <Form.Group style={{ textAlign: "left" }}>
+            <h6 style={{ display: "inline" }}>Start Date: </h6>
+            <DatePickerWrapper />
           </Form.Group>
         </div>
         <div>

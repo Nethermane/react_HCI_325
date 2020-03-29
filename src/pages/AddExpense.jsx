@@ -3,7 +3,7 @@ import { Button, Form, Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useGlobalState from "../UseGlobalState";
 import { withRouter } from 'react-router-dom';
-
+import DatePickerWrapper from "../components/DatePickerWrapper";
 function AddExpense(props) {
     //return <p>add expense page</p>;
     const state = useGlobalState()
@@ -13,7 +13,6 @@ function AddExpense(props) {
         existingVal.push({ id: state.expenses[i].id, name: state.expenses[i].name, amount: state.expenses[i].amount, date: state.expenses[i].date, frequency: state.expenses[i].date, duration: state.expenses[i].duration })
         i++;
     }
-
     return (
         <div style={{ margin: "60px" }}>
             <h1>New Expense</h1>
@@ -44,36 +43,31 @@ function AddExpense(props) {
                         <option value="transportation">Transportation</option>
                     </Form.Control>
                 </div>
-                <div>
-                    <Form.Group controlId="addNewStartDate">
-                        <Form.Control type="text" placeholder="Start Date" defaultValue={(new Date().toISOString().split('T', 1))[0]}/>
-                    </Form.Group>
-                </div>
-                <div>
-                    <Form.Group controlId="addNewDuration">
-                        <Form.Control type="text" placeholder="Duration (Weeks)" />
+                <div style={{ margin: "10px", width:"100%"}}>
+                    <Form.Group style={{textAlign: "left"}}>
+                        <h6 style={{display:"inline"}}>Start Date: </h6>
+                        <DatePickerWrapper />
                     </Form.Group>
                 </div>
                 <Button variant="secondary" type="submit" onClick={() => {
                     let nam = document.getElementById("addNewExpenseName").value.toString();
                     let amoun = document.getElementById("addNewExpenseAmount").value.toString();
                     let dat = document.getElementById("addNewStartDate").value.toString()
-                    let duratio = document.getElementById("addNewDuration").value.toString()
                     let frequenc = document.getElementById("frequency").value.toString()
                     let categor = document.getElementById("category").value.toString()
 
-                    if(!(nam && amoun && dat && duratio && frequenc && categor))
+                    if (!(nam && amoun && dat && frequenc && categor))
                         return;
-                    state.setExpenses([{ id: Math.random(),
+                    state.setExpenses([{
+                        id: Math.random(),
                         name: document.getElementById("addNewExpenseName").value,
                         amount: document.getElementById("addNewExpenseAmount").value,
                         date: document.getElementById("addNewStartDate").value,
-                        duration: document.getElementById("addNewDuration").value,
                         frequency: document.getElementById("frequency").value,
                         category: document.getElementById("category").value
-                }, ...existingVal]);
-                props.history.push('/');
-            }
+                    }, ...existingVal]);
+                    props.history.push('/');
+                }
                 }>Save</Button>
             </Form>
 
