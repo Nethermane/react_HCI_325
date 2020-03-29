@@ -12,14 +12,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function SideNav() {
   return (
     <ul className="sideNav">
-      <li className="item">
+      {/* <li className="item">
         <NavLink className="text" to="./addgoal" activeClassName="active">
           <div className="icon">
             <FontAwesomeIcon icon={faBullseye} />
           </div>
           Add Goal
         </NavLink>
-      </li>
+      </li> */}
       <li className="item">
         <NavLink className="text" to="./addexpense" activeClassName="active">
           <div className="icon">

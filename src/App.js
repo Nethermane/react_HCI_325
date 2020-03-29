@@ -29,7 +29,7 @@ function App(props) {
               <Route exact path="/home" component={Home} />
               <Route path="/reports" component={Reports} />
               <Route path="/cashflows" component={CashFlows} />
-              <Route path="/addgoal" component={AddGoal} />
+              {/* <Route path="/addgoal" component={AddGoal} /> */}
               <Route path="/addexpense" component={AddExpense} />
               <Route path="/addincome" component={AddIncome} />
               <Route path="/login" component={login} />
