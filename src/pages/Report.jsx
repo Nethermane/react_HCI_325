@@ -159,14 +159,17 @@ function filterAndSortByDate(data) {
   var today = new Date();
   var last_year = new Date();
   last_year.setFullYear(today.getFullYear() - 1);
-  
+  console.log(data)
   for (var i in data) {
     var date = new Date(Date.parse(data[i].date));
     date = new Date(date.getFullYear(), date.getMonth(), date.getDate());
     
     // Pretend everything is monthly for now
     var last = new Date(date);
-    last.setMonth(last.getMonth() + 500000);
+    if(data[i].frequency != "onetime")
+      last.setMonth(last.getMonth() + 500000);
+    else
+      last.setMonth(last.getMonth() + 1);
     if (last_year < last) {
       items.push(data[i]);
       items[i].date = date;

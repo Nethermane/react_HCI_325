@@ -25,7 +25,7 @@ function AddExpense(props) {
     const existingVal = []
     var i = 0;
     while (i in state.expenses) {
-        existingVal.push({ id: state.expenses[i].id, name: state.expenses[i].name, amount: state.expenses[i].amount, date: state.expenses[i].date, frequency: state.expenses[i].date, duration: state.expenses[i].duration })
+        existingVal.push({ id: state.expenses[i].id, name: state.expenses[i].name, amount: state.expenses[i].amount, date: state.expenses[i].date, frequency: state.expenses[i].frequency, duration: state.expenses[i].duration })
         i++;
     }
     var categories = [];
@@ -110,15 +110,14 @@ function AddExpense(props) {
                         name: document.getElementById("addNewExpenseName").value,
                         amount: parseFloat(amoun),
                         date: formatDate(par),
+                        duration: 1,
+                        category: document.getElementById("category").value,
                         frequency: document.getElementById("frequency").value,
-                        category: document.getElementById("category").value
                     }, ...existingVal]);
                     props.history.push('/home', { success: true });
                 }
                 }>Save</Button>
             </Form>
-
-
         </div>
     );
 
