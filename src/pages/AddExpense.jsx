@@ -42,10 +42,10 @@ function AddExpense(props) {
             <h1>New Expense</h1>
             <Form onSubmit={e => { e.preventDefault(); }}>
                 <Form.Group controlId="addNewExpenseName">
-                    <Form.Control type="text" placeholder="Netflix" />
+                    <Form.Control type="text" placeholder="Name (e.g. Netflix)" />
                 </Form.Group>
                 <Form.Group controlId="addNewExpenseAmount">
-                    <Form.Control type="text" placeholder="$0" />
+                    <Form.Control type="text" placeholder="$ Amount (e.g. 20)" />
                 </Form.Group>
                 <div>
                     <Form.Control id="frequency" as="select" style={{ width: "100%", marginBottom: "10px", marginTop: "20px" }}>
@@ -58,9 +58,12 @@ function AddExpense(props) {
 
 
                 <div>
-                    <Form.Control id="category" as="select" style={{ width: "100%", marginBottom: "20px" }}>
-                        {categories}
-                    </Form.Control>
+                    <Form.Group style={{ textAlign: "left" }}>
+                        <h6 style={{ display: "inline-block" }}>Category: </h6>
+                        <Form.Control id="category" as="select" style={{ marginBottom: "20px" }}>
+                            {categories}
+                        </Form.Control>
+                    </Form.Group>
                 </div>
                 <div style={{ margin: "10px", width: "100%" }}>
                     <Form.Group style={{ textAlign: "left" }}>

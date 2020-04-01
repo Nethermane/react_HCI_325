@@ -31,6 +31,7 @@ function AddIncome(props) {
   var incomes = s.incomes;
   var expenses = s.expenses;
   console.log(incomes)
+  
   return (
     <div style={{ margin: "60px" }}>
       <div id="error" class="alert alert-danger" style={{display:"none", marginBottom:"0px"}} role="alert">
@@ -39,10 +40,10 @@ function AddIncome(props) {
       <h1>New Income</h1>
       <Form onSubmit={e => { e.preventDefault(); }}>
         <Form.Group controlId="addNewIncomeName">
-          <Form.Control type="text" placeholder="Income Name" />
+          <Form.Control type="text" placeholder="Income Name (e.g. CoGro)" />
         </Form.Group>
         <Form.Group controlId="addNewIncomeAmount">
-          <Form.Control type="text" placeholder="Income Amount ($0)" />
+          <Form.Control type="text" placeholder="Income $ Amount (50)" />
         </Form.Group>
         <div>
           <Form.Control id="frequency" as="select" style={{ width: "100%", marginBottom: "10px" }}>
