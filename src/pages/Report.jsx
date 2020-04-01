@@ -166,8 +166,7 @@ function filterAndSortByDate(data) {
     
     // Pretend everything is monthly for now
     var last = new Date(date);
-    last.setMonth(last.getMonth() + parseInt(data[i].duration));
-    
+    last.setMonth(last.getMonth() + 500000);
     if (last_year < last) {
       items.push(data[i]);
       items[i].date = date;

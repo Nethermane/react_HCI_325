@@ -30,6 +30,7 @@ function App(props) {
               <Route path="/reports" component={Reports} />
               <Route path="/cashflows" component={CashFlows} />
               {/* <Route path="/addgoal" component={AddGoal} /> */}
+              {/* <Route path="/success" render={(props) => <Home {...props} success={true} />}/> */}
               <Route path="/addexpense" component={AddExpense} />
               <Route path="/addincome" component={AddIncome} />
               <Route path="/login" component={login} />

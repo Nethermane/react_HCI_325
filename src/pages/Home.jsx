@@ -2,6 +2,7 @@ import React from "react";
 import Chart from "chart.js";
 import { Container, Row, Col } from "react-bootstrap";
 import useGlobalState from "../UseGlobalState";
+import StatusBar from "../components/StatusBar";
 
 import "./Home.css";
 
@@ -9,41 +10,41 @@ import "./Home.css";
 function mangle(categories, data) {
   var today = new Date();
 
-  var first_day_of_month = new Date (
-      today.getFullYear(), today.getMonth(), 1);
-    
-  var last_day_of_month = new Date (
-      today.getFullYear(), today.getMonth() + 1, 0);
-  
+  var first_day_of_month = new Date(
+    today.getFullYear(), today.getMonth(), 1);
+
+  var last_day_of_month = new Date(
+    today.getFullYear(), today.getMonth() + 1, 0);
+
   for (var i in data) {
     var date = new Date(Date.parse(data[i].date));
     date = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-    
+
     // Pretend everything is monthly for now
     var last = new Date(date.getFullYear(), date.getMonth() + parseInt(data[i].duration), date.getDate());
-    
+
     if (first_day_of_month >= date
-        && last_day_of_month <= last) {
-        
-        console.log(data[i].category)
-        if (!(data[i].category in categories)) {
-            categories[data[i].category] = {
-                max: undefined,
-                amount: parseInt(data[i].amount)
-            }
+      && last_day_of_month <= last) {
+
+      console.log(data[i].category)
+      if (!(data[i].category in categories)) {
+        categories[data[i].category] = {
+          max: undefined,
+          amount: parseInt(data[i].amount)
         }
-        else {
-            categories[data[i].category].amount += parseInt(data[i].amount);
-        }
+      }
+      else {
+        categories[data[i].category].amount += parseInt(data[i].amount);
+      }
     }
   }
-  
+
   for (var c in categories) {
     if (typeof categories[c].max === "undefined") {
-        categories[c].max = categories[c].amount;
+      categories[c].max = categories[c].amount;
     }
   }
-  
+
   return categories;
 }
 
@@ -96,7 +97,7 @@ class Category extends React.Component {
     );
   }
 
-  componentDidMount() {}
+  componentDidMount() { }
 }
 
 class Pie extends React.Component {
@@ -133,47 +134,49 @@ class Pie extends React.Component {
   }
 }
 
-function Home() {
+function Home(props) {
   const state = JSON.parse(JSON.stringify(useGlobalState()));
-  
+
   var categories = {};
 
   for (var c in state.categories) {
     categories[state.categories[c].name] = {
-        max: state.categories[c].max,
-        amount: 0
+      max: state.categories[c].max,
+      amount: 0
     };
   }
-  
+
   categories = mangle(categories, state.expenses);
-  
+
   var category_html = [];
   for (var c in categories) {
     if (c == "undefined")
       continue;
-    
-    category_html.push (
-        <div>
+
+    category_html.push(
+      <div>
         <div class="spacer" />
         <Category name={c} spent={categories[c].amount} budget={categories[c].max} />
-        </div>
+      </div>
     );
   }
-  
   return (
-    <div class="vcenter">
-      <Container fluid>
-        <Row>
-          <Col md={5}>
-            <Pie />
-          </Col>
-          <Col md={6}>
-            <h2 class="fg-purple">This Month</h2>
-            {category_html}
-          </Col>
-          <Col md={1}></Col>
-        </Row>
-      </Container>
+    <div style={{marginTop:"10px"}}>
+      {props.location.state && props.location.state.success ? <StatusBar></StatusBar> : null}
+      <div class="vcenter">
+        <Container fluid>
+          <Row>
+            <Col md={5}>
+              <Pie />
+            </Col>
+            <Col md={6}>
+              <h2 class="fg-purple">This Month</h2>
+              {category_html}
+            </Col>
+            <Col md={1}></Col>
+          </Row>
+        </Container>
+      </div>
     </div>
   );
 }
