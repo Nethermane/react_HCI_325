@@ -9,6 +9,8 @@ import { useAccordionToggle } from "react-bootstrap/AccordionToggle";
 import { faAngleDown, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { formatMonth, formatDate, formatCurrency, filterAndSortRecords, modifyDate } from "../Helpers";
+
 //var CanvasJSReact = require('./canvasjs.react');
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
@@ -128,73 +130,6 @@ class SubTable extends React.Component {
     }
 }
 
-
-function formatCurrency(amount) {
-    if (amount < 0)
-        return '- $' + -amount;
-    return '+ $' + amount;
-}
-
-function formatDate(date) {
-    var fmt = {
-        year: '2-digit',
-        month: '2-digit',
-        day: '2-digit',
-    };
-    return date.toLocaleDateString('en-CA', fmt);
-}
-
-function formatMonth(date) {
-    var fmt = {
-        year: '2-digit',
-        month: 'short'
-    };
-    return date.toLocaleDateString('en-CA', fmt);
-}
-
-
-function filterAndSortByDate(data) {
-  var items = [];
- 
-  var today = new Date();
-  var last_year = new Date();
-  last_year.setFullYear(today.getFullYear() - 1);
-  console.log(data)
-  for (var i in data) {
-    var date = new Date(Date.parse(data[i].date));
-    date = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-    
-    // Pretend everything is monthly for now
-    var last = new Date(date);
-    if(data[i].frequency != "onetime")
-      last.setMonth(last.getMonth() + 500000);
-    else
-      last.setMonth(last.getMonth() + 1);
-    if (last_year < last) {
-      items.push(data[i]);
-      items[i].date = date;
-      items[i].last = last;
-      items[i].info = [
-        <Row>
-          <Col md={1}></Col>
-          <Col md={2}>
-            <p class={"lal"}>
-                {formatDate(items[i].date)}
-            </p>
-          </Col>
-          <Col md={3}><p class={"lal"}>{items[i].name}</p></Col>
-          <Col md={2}><p class={"lal"}>{items[i].category}</p></Col>
-          <Col md={2}><p class={"lal"}>{items[i].frequency}</p></Col>
-          <Col md={2}><p class={"lal"}>{formatCurrency(items[i].amount)}</p></Col>
-        </Row>
-      ];
-    }
-  }
-
-  items.sort((x, y) => { return x.date > y.date });
-  return items;
-}
-
 function Report() {
   const state = JSON.parse(JSON.stringify(useGlobalState()));
   var today = new Date();
@@ -211,10 +146,13 @@ function Report() {
     records.push(incomes[i]);
   }
     
-  records = filterAndSortByDate(records);
-  
   var today = new Date();
   var month = today.getMonth();
+
+  records = filterAndSortRecords(
+                modifyDate(today, -1, 0, 0),
+                modifyDate(today, 1, 0, 0),
+                records);
 
   var month_inc = new Array(25);
   var month_exp = new Array(25);
@@ -247,8 +185,8 @@ function Report() {
     var monthly_records = [];
     
     for (var c in records) {
-      if (first_day_of_month >= records[c].date
-          && last_day_of_month <= records[c].last) {
+      if (first_day_of_month <= records[c].date
+          && last_day_of_month >= records[c].date) {
         
         var amount = parseInt(records[c].amount);
         

@@ -3,11 +3,12 @@ import Chart from "chart.js";
 import { Container, Row, Col } from "react-bootstrap";
 import useGlobalState from "../UseGlobalState";
 import StatusBar from "../components/StatusBar";
+import { filterAndSortRecords } from "../Helpers";
 
 import "./Home.css";
 
 
-function mangle(categories, data) {
+function mangle(categories, input_data) {
   var today = new Date();
 
   var first_day_of_month = new Date(
@@ -16,17 +17,10 @@ function mangle(categories, data) {
   var last_day_of_month = new Date(
     today.getFullYear(), today.getMonth() + 1, 0);
 
+  var data = filterAndSortRecords(first_day_of_month, last_day_of_month, input_data);
+  console.log(data)
+
   for (var i in data) {
-    var date = new Date(Date.parse(data[i].date));
-    date = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-
-    // Pretend everything is monthly for now
-    var last = new Date(date.getFullYear(), date.getMonth() + parseInt(data[i].duration), date.getDate());
-
-    if (first_day_of_month >= date
-      && last_day_of_month <= last) {
-
-      console.log(data[i].category)
       if (!(data[i].category in categories)) {
         categories[data[i].category] = {
           max: undefined,
@@ -36,7 +30,6 @@ function mangle(categories, data) {
       else {
         categories[data[i].category].amount += parseInt(data[i].amount);
       }
-    }
   }
 
   for (var c in categories) {
@@ -166,14 +159,21 @@ function Home(props) {
       <div class="vcenter">
         <Container fluid>
           <Row>
-            <Col md={5}>
+            <Col md={6}>
+              <h2 class="fg-purple">Expenses</h2>
               <Pie />
             </Col>
             <Col md={6}>
-              <h2 class="fg-purple">This Month</h2>
-              {category_html}
+              <h2 class="fg-purple">Expenses</h2>
+              <Pie />
             </Col>
             <Col md={1}></Col>
+          </Row>
+          <Row>
+            <Col>
+            <h2 class="fg-purple">Spending</h2>
+            {category_html}
+            </Col>
           </Row>
         </Container>
       </div>
