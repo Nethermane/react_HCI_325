@@ -1,6 +1,6 @@
 .vcenter {
 	display: flex;
-	min-height: 90vh;
+	min-height: 88vh;
 	align-items: center;
 }
 
@@ -39,3 +39,5 @@ h2 {
 .spacer {
 	height: 2vh;
 }
+
+.cal { text-align: center; }

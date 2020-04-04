@@ -104,23 +104,41 @@ class Pie extends React.Component {
   }
 
   componentDidMount() {
+    //let purple = ["#6202EE", "#BC94F8", "#D9C2FB"]
+    var labels = [];
+    var colors = [];
+    var data = [];
+    
+    for (var i in this.props.data) {
+        if (this.props.data[i].amount == 0)
+            continue
+        
+        labels.push(i);
+        data.push(this.props.data[i].amount);
+        colors.push('rgba(99, 2, 238,' + (1 - (colors.length * 0.2)) + ')');
+    }
+    
     new Chart(this.ctx.current, {
       type: "pie",
       data: {
         datasets: [
           {
-            data: [1, 2, 3],
-            backgroundColor: ["#6202EE", "#BC94F8", "#D9C2FB"]
+            data: data,
+            backgroundColor: colors
           }
         ],
-        labels: ["Spent", "Allocated", "Unallocated"]
+        labels: labels
       },
       options: {
         maintainAspectRatio: true,
         responsive: true,
-        aspectRatio: 1.5,
+        aspectRatio: 1.8,
         legend: {
           position: "bottom"
+        },
+        tooltips: {
+          enabled: true,
+          callbacks: {label:(i, data) => ' $'+data.datasets[0].data[i.index]}
         }
       }
     });
@@ -130,26 +148,28 @@ class Pie extends React.Component {
 function Home(props) {
   const state = JSON.parse(JSON.stringify(useGlobalState()));
 
-  var categories = {};
+  var expense_categories = {};
+  var income_categories = {};
 
   for (var c in state.categories) {
-    categories[state.categories[c].name] = {
+    expense_categories[state.categories[c].name] = {
       max: state.categories[c].max,
       amount: 0
     };
   }
 
-  categories = mangle(categories, state.expenses);
+  expense_categories = mangle(expense_categories, state.expenses);
+  income_categories = mangle(income_categories, state.incomes)
 
   var category_html = [];
-  for (var c in categories) {
+  for (var c in expense_categories) {
     if (c == "undefined")
       continue;
 
     category_html.push(
       <div>
         <div class="spacer" />
-        <Category name={c} spent={categories[c].amount} budget={categories[c].max} />
+        <Category name={c} spent={expense_categories[c].amount} budget={expense_categories[c].max} />
       </div>
     );
   }
@@ -159,21 +179,18 @@ function Home(props) {
       <div class="vcenter">
         <Container fluid>
           <Row>
-            <Col md={6}>
-              <h2 class="fg-purple">Expenses</h2>
-              <Pie />
+            <Col md={5}>
+              <h2 class="fg-purple cal">Expenses</h2>
+              <Pie data={expense_categories}/>
+              <div class="spacer" />
+              <h2 class="fg-purple cal">Incomes</h2>
+              <Pie data={income_categories}/>
             </Col>
             <Col md={6}>
-              <h2 class="fg-purple">Expenses</h2>
-              <Pie />
+              <h2 class="fg-purple">Spending</h2>
+              {category_html}
             </Col>
             <Col md={1}></Col>
-          </Row>
-          <Row>
-            <Col>
-            <h2 class="fg-purple">Spending</h2>
-            {category_html}
-            </Col>
           </Row>
         </Container>
       </div>
