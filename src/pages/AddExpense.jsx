@@ -25,7 +25,7 @@ function AddExpense(props) {
     const existingVal = []
     var i = 0;
     while (i in state.expenses) {
-        existingVal.push({ id: state.expenses[i].id, name: state.expenses[i].name, amount: state.expenses[i].amount, date: state.expenses[i].date, frequency: state.expenses[i].frequency, duration: state.expenses[i].duration })
+        existingVal.push({ id: state.expenses[i].id, name: state.expenses[i].name, amount: state.expenses[i].amount, date: state.expenses[i].date, category: state.expenses[i].category, frequency: state.expenses[i].frequency, duration: state.expenses[i].duration })
         i++;
     }
     var categories = [];
