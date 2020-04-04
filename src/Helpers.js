@@ -64,6 +64,7 @@ export function filterAndSortRecords(start_date, end_date, data) {
     let week = 0;
     
     var freq = data[i].frequency;
+    let onetime = freq == "onetime" || freq == "one time";
     
     if (freq == "yearly" || freq == "annually")
         year = 1;
@@ -80,7 +81,7 @@ export function filterAndSortRecords(start_date, end_date, data) {
         records.push(record);
       }
       date = modifyDate(date, year, month, week);
-    } while (date <= end_date && freq != "one time")
+    } while (date <= end_date && !onetime)
   }
   
   records.sort((x, y) => { return x.date > y.date });
