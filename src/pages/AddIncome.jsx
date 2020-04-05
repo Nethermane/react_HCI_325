@@ -23,7 +23,7 @@ function AddIncome(props) {
   const existingVal = []
   var i = 0;
   while (i in state.incomes) {
-    existingVal.push({ id: state.incomes[i].id, name: state.incomes[i].name, amount: state.incomes[i].amount, date: state.incomes[i].date, frequency: state.incomes[i].frequency, duration: state.incomes[i].duration })
+    existingVal.push({ id: state.incomes[i].id, name: state.incomes[i].name, amount: state.incomes[i].amount, date: state.incomes[i].date, category: state.incomes[i].category, frequency: state.incomes[i].frequency, duration: state.incomes[i].duration })
     i++;
   }
   const s = JSON.parse(JSON.stringify(useGlobalState()));
