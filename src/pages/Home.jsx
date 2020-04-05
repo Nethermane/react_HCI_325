@@ -10,7 +10,7 @@ import "./Home.css";
 let pallette = [ '#6202EE', '#0218EE', '#028EEE', '#D802EE', '#ee028e' ];
 
 
-function mangle(categories, input_data) {
+function mangle(categories, input_data, setMissingToOther) {
   var today = new Date();
 
   var first_day_of_month = new Date(
@@ -24,10 +24,11 @@ function mangle(categories, input_data) {
 
   for (var i in data) {
       if (!(data[i].category in categories)) {
-        //categories[data[i].category] = {
-        data[i].category = 'Other';
-        if (!('Other' in categories)) {
-          categories['Other'] = {
+        if (typeof data[i].category === 'undefined' || setMissingToOther)
+          data[i].category = 'Other';
+        
+        if (!(data[i].category in categories)) {
+          categories[data[i].category] = {
             max: undefined,
             amount: 0
           }
@@ -182,8 +183,8 @@ function Home(props) {
     };
   }
 
-  expense_categories = mangle(expense_categories, state.expenses);
-  income_categories = mangle(income_categories, state.incomes)
+  expense_categories = mangle(expense_categories, state.expenses, true);
+  income_categories = mangle(income_categories, state.incomes, false);
 
   var category_html = [];
   for (var c in expense_categories) {
