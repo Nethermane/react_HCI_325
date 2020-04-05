@@ -22,7 +22,8 @@ function mangle(categories, input_data) {
 
   for (var i in data) {
       if (!(data[i].category in categories)) {
-        categories[data[i].category] = {
+        //categories[data[i].category] = {
+        categories['Other'] = {
           max: undefined,
           amount: parseInt(data[i].amount)
         }
@@ -110,9 +111,15 @@ class Pie extends React.Component {
     var data = [];
     
     for (var i in this.props.data) {
-        if (this.props.data[i].amount == 0)
+        if (this.props.data[i].amount == 0 || i == "Other")
             continue
         
+        labels.push(i);
+        data.push(this.props.data[i].amount);
+        colors.push('rgba(99, 2, 238,' + (1 - (colors.length * 0.2)) + ')');
+    }
+    
+    if ("Other" in this.props.data) {
         labels.push(i);
         data.push(this.props.data[i].amount);
         colors.push('rgba(99, 2, 238,' + (1 - (colors.length * 0.2)) + ')');
@@ -145,6 +152,17 @@ class Pie extends React.Component {
   }
 }
 
+
+function formatCategory(categories, c) {
+    return (
+      <div>
+        <div class="spacer" />
+        <Category name={c} spent={categories[c].amount} budget={categories[c].max} />
+      </div>
+    );
+}
+
+
 function Home(props) {
   const state = JSON.parse(JSON.stringify(useGlobalState()));
 
@@ -163,16 +181,16 @@ function Home(props) {
 
   var category_html = [];
   for (var c in expense_categories) {
-    if (c == "undefined")
+    if (c == "undefined" || c == "Other")
       continue;
 
-    category_html.push(
-      <div>
-        <div class="spacer" />
-        <Category name={c} spent={expense_categories[c].amount} budget={expense_categories[c].max} />
-      </div>
-    );
+    category_html.push(formatCategory(expense_categories, c));
   }
+  
+  if ("Other" in expense_categories) {
+    category_html.push(formatCategory(expense_categories, "Other"));
+  }
+
   return (
     <div style={{marginTop:"10px"}}>
       {props.location.state && props.location.state.success ? <StatusBar></StatusBar> : null}
