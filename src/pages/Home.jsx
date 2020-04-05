@@ -7,6 +7,8 @@ import { filterAndSortRecords } from "../Helpers";
 
 import "./Home.css";
 
+let pallette = [ '#6202EE', '#0218EE', '#028EEE', '#D802EE', '#ee028e' ];
+
 
 function mangle(categories, input_data) {
   var today = new Date();
@@ -118,13 +120,15 @@ class Pie extends React.Component {
         
         labels.push(i);
         data.push(this.props.data[i].amount);
-        colors.push('rgba(99, 2, 238,' + (1 - (colors.length * 0.2)) + ')');
+        //colors.push('rgba(99, 2, 238,' + (1 - (colors.length * 0.2)) + ')');
+		colors.push(pallette[colors.length%pallette.length]);
     }
     
     if ("Other" in this.props.data) {
         labels.push(i);
         data.push(this.props.data[i].amount);
-        colors.push('rgba(99, 2, 238,' + (1 - (colors.length * 0.2)) + ')');
+        //colors.push('rgba(99, 2, 238,' + (1 - (colors.length * 0.2)) + ')');
+		colors.push(pallette[colors.length%pallette.length]);
     }
     
     new Chart(this.ctx.current, {
