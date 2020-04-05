@@ -23,14 +23,16 @@ function mangle(categories, input_data) {
   for (var i in data) {
       if (!(data[i].category in categories)) {
         //categories[data[i].category] = {
-        categories['Other'] = {
-          max: undefined,
-          amount: parseInt(data[i].amount)
+        data[i].category = 'Other';
+        if (!('Other' in categories)) {
+          categories['Other'] = {
+            max: undefined,
+            amount: 0
+          }
         }
       }
-      else {
-        categories[data[i].category].amount += parseInt(data[i].amount);
-      }
+      
+      categories[data[i].category].amount += parseInt(data[i].amount);
   }
 
   for (var c in categories) {
