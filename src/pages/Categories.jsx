@@ -1,7 +1,10 @@
 import React from "react";
 import useGlobalState from "../UseGlobalState";
 import InfoForm from "../components/InfoForm";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Form, Dropdown } from "react-bootstrap";
+import "./CashFlow.css";
 function buttonRemove(id, state) {
     var i = 0;
     var existingVal = []
@@ -26,7 +29,7 @@ function Categories() {
                 <td>{state.categories[i].name}</td>
                 <td>${state.categories[i].max}</td>
 
-                <td><button id={id} onClick={() => buttonRemove(id, state)}>&#10060;</button></td>
+                <td  className="cashflow-row"><button class=".cashflow-row button" id={id} onClick={() => buttonRemove(id, state)}><FontAwesomeIcon icon={faTimes} /></button></td>
             </tr>
         )
         i++;
