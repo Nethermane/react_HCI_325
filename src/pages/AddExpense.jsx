@@ -34,6 +34,7 @@ function AddExpense(props) {
         categories.push(<option value={state.categories[i].name}>{state.categories[i].name}</option>)
         i++;
     }
+    categories.push(<option value="Other">Other</option>)
     return (
         <div style={{ margin: "60px" }}>
             <div id="error" class="alert alert-danger" style={{ display: "none", marginBottom: "0px" }} role="alert">
@@ -87,6 +88,8 @@ function AddExpense(props) {
                         let amo = parseFloat(amoun, 10);
                         if (Number.isNaN(amo)) {
                             errors.push("Amount must be numeric")
+                        } else if(amo < 0) {
+                            errors.push("Amount must be positive")
                         }
                     }
                     if (!dat) {

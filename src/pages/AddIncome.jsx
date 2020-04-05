@@ -7,14 +7,14 @@ import StatusBar from "../components/StatusBar";
 
 function formatDate(date) {
   var d = new Date(date),
-      month = '' + (d.getMonth() + 1),
-      day = '' + d.getDate(),
-      year = d.getFullYear();
+    month = '' + (d.getMonth() + 1),
+    day = '' + d.getDate(),
+    year = d.getFullYear();
 
-  if (month.length < 2) 
-      month = '0' + month;
-  if (day.length < 2) 
-      day = '0' + day;
+  if (month.length < 2)
+    month = '0' + month;
+  if (day.length < 2)
+    day = '0' + day;
 
   return [year, month, day].join('-');
 }
@@ -23,7 +23,7 @@ function AddIncome(props) {
   const existingVal = []
   var i = 0;
   while (i in state.incomes) {
-    existingVal.push({ id: state.incomes[i].id, name: state.incomes[i].name, amount: state.incomes[i].amount, date: state.incomes[i].date, category: states.incomes[i].category, frequency: state.incomes[i].frequency, duration: state.incomes[i].duration })
+    existingVal.push({ id: state.incomes[i].id, name: state.incomes[i].name, amount: state.incomes[i].amount, date: state.incomes[i].date, frequency: state.incomes[i].frequency, duration: state.incomes[i].duration })
     i++;
   }
   const s = JSON.parse(JSON.stringify(useGlobalState()));
@@ -31,11 +31,11 @@ function AddIncome(props) {
   var incomes = s.incomes;
   var expenses = s.expenses;
   console.log(incomes)
-  
+
   return (
     <div style={{ margin: "60px" }}>
-      <div id="error" class="alert alert-danger" style={{display:"none", marginBottom:"0px"}} role="alert">
-        <p id="errorText" style={{marginBottom:"0px"}}></p>
+      <div id="error" class="alert alert-danger" style={{ display: "none", marginBottom: "0px" }} role="alert">
+        <p id="errorText" style={{ marginBottom: "0px" }}></p>
       </div>
       <h1>New Income</h1>
       <Form onSubmit={e => { e.preventDefault(); }}>
@@ -75,6 +75,8 @@ function AddIncome(props) {
             let amo = parseFloat(amoun, 10);
             if (Number.isNaN(amo)) {
               errors.push("Amount must be numeric")
+            } else if (amo < 0) {
+              errors.push("Amount must be positive")
             }
           }
           if (!dat) {
