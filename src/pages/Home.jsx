@@ -138,7 +138,7 @@ class Pie extends React.Component {
         },
         tooltips: {
           enabled: true,
-          callbacks: {label:(i, data) => ' $'+data.datasets[0].data[i.index]}
+          callbacks: {label:(i, data) => labels[i.index] + ': $'+data.datasets[0].data[i.index]}
         }
       }
     });
