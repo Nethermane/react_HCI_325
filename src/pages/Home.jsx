@@ -208,8 +208,6 @@ function Home(props) {
               <h2 class="fg-purple cal">Expenses</h2>
               <Pie data={expense_categories}/>
               <div class="spacer" />
-              <h2 class="fg-purple cal">Incomes</h2>
-              <Pie data={income_categories}/>
             </Col>
             <Col md={6}>
               <h2 class="fg-purple">Spending</h2>
