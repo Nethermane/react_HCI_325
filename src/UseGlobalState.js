@@ -17,7 +17,7 @@ const initialState = {
       date: "2020-01-01",
       duration: "4",
       category: "Scholarship",
-      frequency: "monthly"
+      frequency: "monthly",
     },
     {
       id: 2,
@@ -26,8 +26,8 @@ const initialState = {
       date: "2020-02-02",
       category: "Work",
       duration: "4",
-      frequency: "monthly"
-    }
+      frequency: "monthly",
+    },
   ],
   expenses: [
     {
@@ -37,7 +37,7 @@ const initialState = {
       date: "2020-01-01",
       duration: "4",
       category: "Living",
-      frequency: "monthly"
+      frequency: "monthly",
     },
     {
       id: 2,
@@ -46,7 +46,7 @@ const initialState = {
       date: "2020-02-01",
       duration: "3",
       category: "Entertainment",
-      frequency: "monthly"
+      frequency: "monthly",
     },
     {
       id: 3,
@@ -55,16 +55,16 @@ const initialState = {
       date: "2020-03-01",
       duration: "3",
       category: "Coffee",
-      frequency: "monthly"
+      frequency: "monthly",
     },
     {
       id: 4,
       name: "Jim Borton's",
       amount: "250",
-      date: "2020-03-15",
+      date: "2020-04-06",
       duration: "3",
       category: "Coffee",
-      frequency: "one time"
+      frequency: "onetime",
     },
     {
       id: 5,
@@ -73,7 +73,7 @@ const initialState = {
       date: "2020-01-01",
       duration: "3",
       category: "Food",
-      frequency: "monthly"
+      frequency: "monthly",
     },
     {
       id: 6,
@@ -82,8 +82,8 @@ const initialState = {
       date: "2020-01-01",
       duration: "3",
       category: "Food",
-      frequency: "monthly"
-    }
+      frequency: "monthly",
+    },
   ],
   goals: [{ id: 1, name: "phone", frequency: "monthly", amount: "100" }],
   categories: [
@@ -91,8 +91,8 @@ const initialState = {
     { id: 2, name: "Entertainment", max: 50 },
     { id: 3, name: "School", max: 250 },
     { id: 4, name: "Coffee", max: 175 },
-    { id: 5, name: "Food", max: 250 }
-  ]
+    { id: 5, name: "Food", max: 250 },
+  ],
 };
 
 const globalStateReducer = (state, action) => {
@@ -100,31 +100,31 @@ const globalStateReducer = (state, action) => {
     case SET_INCOME:
       return {
         ...state,
-        incomes: { ...action.payload }
+        incomes: { ...action.payload },
       };
 
     case SET_ACCOUNTS:
       return {
         ...state,
-        accounts: { ...action.payload }
+        accounts: { ...action.payload },
       };
 
     case SET_EXPENSES:
       return {
         ...state,
-        expenses: { ...action.payload }
+        expenses: { ...action.payload },
       };
 
     case SET_GOAL:
       return {
         ...state,
-        goals: { ...action.payload }
+        goals: { ...action.payload },
       };
 
     case SET_CATEGORY:
       return {
         ...state,
-        categories: { ...action.payload }
+        categories: { ...action.payload },
       };
 
     default:
@@ -145,38 +145,38 @@ export const GlobalStateProvider = ({ children }) => {
 const useGlobalState = () => {
   const [state, dispatch] = useContext(GlobalStateContext);
   //array of id, name, amount
-  const setAccounts = a => {
+  const setAccounts = (a) => {
     dispatch({
       type: SET_ACCOUNTS,
-      payload: a
+      payload: a,
     });
   };
   //array of  id, name, amount, date, frequency
-  const setIncomes = a => {
+  const setIncomes = (a) => {
     dispatch({
       type: SET_INCOME,
-      payload: a
+      payload: a,
     });
   };
   //array of  id, name, amount, date, frequency
-  const setExpenses = a => {
+  const setExpenses = (a) => {
     dispatch({
       type: SET_EXPENSES,
-      payload: a
+      payload: a,
     });
   };
   //array of  id, name, amount, frequency
-  const setGoals = a => {
+  const setGoals = (a) => {
     dispatch({
       type: SET_GOAL,
-      payload: a
+      payload: a,
     });
   };
   //array of id, name, max
-  const setCategories = a => {
+  const setCategories = (a) => {
     dispatch({
       type: SET_CATEGORY,
-      payload: a
+      payload: a,
     });
   };
 
@@ -190,7 +190,7 @@ const useGlobalState = () => {
     setGoals,
     goals: { ...state.goals },
     setCategories,
-    categories: { ...state.categories }
+    categories: { ...state.categories },
   };
 };
 

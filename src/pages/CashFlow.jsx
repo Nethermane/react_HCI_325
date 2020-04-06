@@ -8,7 +8,7 @@ var today = new Date();
 var current_year = today.getFullYear();
 var current_month = today.getMonth() + 1;
 //first day of the month
-var firstDay = new Date(current_year, current_month, 1).toLocaleString();
+var firstDay = new Date(current_year, current_month - 1, 1).toLocaleString();
 //last dat of the month
 var lastDay = new Date(current_year, current_month, 0).toLocaleString();
 
@@ -21,7 +21,7 @@ function CashFlow() {
 
   for (var i in state.incomes) {
     existingIncomes.push(state.incomes[i]);
-    if (state.incomes[i].frequency != "one time") {
+    if (state.incomes[i].frequency != "onetime") {
       incomesHtml.push(
         <InfoForm
           key={state.incomes[i].id}
@@ -35,7 +35,7 @@ function CashFlow() {
 
   for (var e in state.expenses) {
     existingExpenses.push(state.expenses[e]);
-    if (state.expenses[e].frequency != "one time") {
+    if (state.expenses[e].frequency != "onetime") {
       expensesHtml.push(
         <InfoForm
           key={state.expenses[e].id}
@@ -88,10 +88,9 @@ function getSum(data_getsum) {
     } else if (frequency == "yearly") {
       total_amount += (current_year - year + 1) * amount;
     } else {
-      var date = data_getsum[e].date;
-      if (date >= firstDay && date <= lastDay) {
-        total_amount += amount;
-      }
+      // if (date <= firstDay && date >= lastDay) {
+      total_amount += amount;
+      // }
     }
   }
   return total_amount;
