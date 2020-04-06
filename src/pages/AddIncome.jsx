@@ -23,7 +23,7 @@ function AddIncome(props) {
   const existingVal = []
   var i = 0;
   while (i in state.incomes) {
-    existingVal.push({ id: state.incomes[i].id, name: state.incomes[i].name, amount: state.incomes[i].amount, date: state.incomes[i].date, category: state.incomes[i].category, frequency: state.incomes[i].frequency, duration: state.incomes[i].duration })
+    existingVal.push({ id: state.incomes[i].id, name: state.incomes[i].name, amount: state.incomes[i].amount, date: state.incomes[i].date, category: state.incomes[i].category, frequency: state.incomes[i].frequency, duration: state.incomes[i].duration, end_date: state.incomes[i].end_date })
     i++;
   }
   const s = JSON.parse(JSON.stringify(useGlobalState()));
@@ -101,7 +101,8 @@ function AddIncome(props) {
             name: nam,
             amount: parseFloat(amoun, 10),
             date: formatDate(par),
-            frequency: frequenc
+            frequency: frequenc,
+            end_date: "3020-01-01"
           }, ...existingVal]);
           props.history.push('/home', { success: true });
         }}>Save</Button>
