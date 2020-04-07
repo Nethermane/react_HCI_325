@@ -55,9 +55,14 @@ export function filterAndSortRecords(start_date, end_date, data) {
   
   for (var i in data) {
     var date = modifyDate(new Date(Date.parse(data[i].date)), 0, 0, 1);
+    var last = modifyDate(date, 1000, 0, 0);
+
+    if (!(typeof data[i].end_date === 'undefined')) {
+      last = modifyDate(new Date(Date.parse(data[i].end_date)), 0, 0, 1);
+    }
     
-      if (end_date < date)
-        continue;
+    if (end_date < date)
+      continue;
     
     let year = 0;
     let month = 0;
@@ -81,9 +86,9 @@ export function filterAndSortRecords(start_date, end_date, data) {
         records.push(record);
       }
       date = modifyDate(date, year, month, week);
-    } while (date <= end_date && !onetime)
+    } while (date <= end_date && date <= last && !onetime)
   }
   
-  records.sort((x, y) => { return x.date > y.date });
+  records.sort((x, y) => { return x.date > y.date ? 1 : -1 });
   return records;
 }
